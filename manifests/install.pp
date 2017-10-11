@@ -1,8 +1,3 @@
-# == Class: telegraf::install
-#
-# Conditionally handle InfluxData's official repos and install the necessary
-# Telegraf package.
-#
 class telegraf::install {
 
   assert_private()
@@ -35,28 +30,10 @@ class telegraf::install {
         }
         Yumrepo['influxdata'] -> Package[$::telegraf::package_name]
       }
-      'windows': {
-        # repo is not applicable to windows
-      }
       default: {
-        fail('Only RedHat, CentOS, OracleLinux, Debian, Ubuntu and Windows are supported at this time')
+        fail('Only RedHat, CentOS, OracleLinux, Debian, Ubuntu')
       }
     }
   }
-
-  if $::osfamily == 'windows' {
-    # required to install telegraf on windows
-    require chocolatey
-
-    # package install
-    package { $::telegraf::package_name:
-      ensure          => $::telegraf::ensure,
-      provider        => chocolatey,
-      source          => $::telegraf::windows_package_url,
-      install_options => $::telegraf::install_options,
-    }
-  } else {
-    ensure_packages([$::telegraf::package_name], { ensure => $::telegraf::ensure, install_options => $::telegraf::install_options })
-  }
-
+  ensure_packages([$::telegraf::package_name], { ensure => $::telegraf::ensure, install_options => $::telegraf::install_options })
 }

@@ -1,0 +1,29 @@
+---
+telegraf::ensure: "1.4.1-1"
+telegraf::interval: "10s"
+telegraf::flush_interval: "10s"
+telegraf::global_tags:
+  type: "physical"
+telegraf::inputs:
+  cpu:
+    percpu: true
+    totalcpu: true
+  disk:
+    ignore_fs:
+      - "tmpfs"
+      - "devtmpfs"
+  diskio:
+  kernel:
+  mem:
+  net:
+  netstat:
+  ping:
+  swap:
+  system:
+telegraf::outputs:
+  influxdb:
+    urls:
+      - "udp://metrics.[DOMAIN].com:8086"
+    database: 'DB'
+    username: 'DBUSER'
+    password: 'DBPASSOWRD'

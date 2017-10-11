@@ -1,9 +1,2 @@
-Gemfile.lock
-log
-pkg
-travis.log
-.vagrant
-spec/fixtures/*
-junit
-.bundle/
-vendor/
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/

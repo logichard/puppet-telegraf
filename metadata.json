@@ -1,12 +1,12 @@
 {
-  "name": "datacentred-telegraf",
-  "version": "1.5.0",
-  "author": "DataCentred Ltd",
+  "name": "logichard-telegraf",
+  "version": "0.9.0",
+  "author": "Daniel Logic Król",
   "summary": "Configuration and management of InfluxData's Telegraf metrics collection agent",
   "license": "GPL-3.0",
   "source": "https://github.com/datacentred/puppet-telegraf",
-  "project_page": "https://github.com/datacentred/puppet-telegraf",
-  "issues_url": "https://github.com/datacentred/puppet-telegraf/issues",
+  "project_page": "https://github.com/logichard/puppet-telegraf",
+  "issues_url": "https://github.com/logichard/puppet-telegraf/issues",
   "tags": ["telegraf","influxdb","influxdata"],
   "operatingsystem_support": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "operatingsystem": "Debian",
-      "operatingsystemrelease": [ "8" ]
+      "operatingsystemrelease": [ "8","9" ]
     },
     {
       "operatingsystem": "OracleLinux",
